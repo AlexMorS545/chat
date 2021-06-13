@@ -3,9 +3,11 @@
   <v-app-bar app>
     <v-icon class="mr-10">{{ icons.mdiAccount }}</v-icon>
     <h2>{{ oneUser.name }}</h2>
-  </v-app-bar>
+    </v-app-bar>
   <v-main>
-    <nuxt/>
+    <div style="height: 100%;">
+      <nuxt/>
+    </div>
   </v-main>
 </v-app>
 </template>
@@ -18,7 +20,7 @@ export default {
     icons: {mdiAccount}
   }),
   computed: {
-    ...mapState(['oneUser'])
+    ...mapState(['oneUser', 'messages'])
   },
   methods: {
     // message() {

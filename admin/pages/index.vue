@@ -1,5 +1,5 @@
 <template>
-    <v-card height="90vh" width="256">
+    <v-card height="95vh" width="256">
       <v-navigation-drawer permanent>
         <v-list-item>
           <v-list-item-content>
@@ -24,12 +24,12 @@
 import {mapMutations, mapState} from 'vuex'
 export default {
   layout: 'head',
-  data: () => ({
-    arrUsers: []
-  }),
+  // data: () => ({
+  //   arrUsers: []
+  // }),
   sockets: {
     connect() {
-      console.log('Client IO connect')
+      console.log('Client connect')
     }
   },
   methods: {
@@ -40,8 +40,8 @@ export default {
           this.setOneUser(u)
           this.$router.push('/chat')
           this.$socket.client.emit('userJoined', u, data => {
-            this.setOneUser(u)
-            this.$router.push('/chat')
+            // this.setOneUser(u)
+            // this.$router.push('/chat')
           })
         }
       });
@@ -50,11 +50,11 @@ export default {
   computed: {
     ...mapState(['users']),
     ...mapMutations(['setUsers'])
-  },
-    // let usersName = []
+  }
     // this.users.forEach(u => {
     //   usersName.push(u.name)
     //   this.arrUsers = Array.from(new Set(usersName))
     // })
+
 }
 </script>
