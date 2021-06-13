@@ -1,6 +1,7 @@
 export const state = () => ({
   users: [],
-  oneUser: {}
+  oneUser: {},
+  messages: []
 })
 
 export const actions = {
@@ -13,17 +14,25 @@ export const actions = {
   },
 
   SOCKET_newMessage(ctx, data) {
-    console.log('message ', data);
+    ctx.commit('createMessage', data.text)
   }
 }
 
 export const mutations = {
   setUsers(state, users) {
+
+    // users.forEach(user => {
+
+    // })
+
     state.users = users
+
   },
   setOneUser(state, user) {
-    state.oneUser = {}
     state.oneUser = user
+  },
+  createMessage(state, message) {
+    state.messages.push(message)
   }
 }
 
